@@ -1,11 +1,22 @@
-from dotenv import load_dotenv
-import os
+# from dotenv import load_dotenv
 
-# import google.generativeai as genai #pip install google-generativeai``
+import tomllib  # Python 3.11+; if older, pip install toml and use "import toml as tomllib"
+import os
 import streamlit as st
 
+# import google.generativeai as genai #pip install google-generativeai``
+
 # Load the .env file
-load_dotenv()
+# load_dotenv()
+# Access environment variables
+# google_api_key = os.getenv("GOOGLE_API_KEY")
+
+
+# Load config.toml
+with open("config.toml", "rb") as f:
+    config = tomllib.load(f)
+
+google_api_key = config["google"]["GOOGLE_API_KEY"]
 
 
 from google import genai
@@ -15,9 +26,6 @@ from google.genai import types
 # st.title('Language Translation')
 st.title('Text Summarizer & Sentiment Analyzer')
 
-
-# Access environment variables
-google_api_key = os.getenv("GOOGLE_API_KEY")
 
 # os.environ['GOOGLE_API_KEY'] = google_api_key
 
@@ -78,6 +86,3 @@ if st.button('Start Summary') :
 
     st.success(f"Summary: {resp1.text}")
     st.success(f"Sentiment: {resp2.text}")
-
-
-
