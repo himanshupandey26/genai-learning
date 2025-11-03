@@ -37,3 +37,5 @@ build/
 # Environment variables
 .env
 config.toml
+secrets.toml
+# .streamlit
