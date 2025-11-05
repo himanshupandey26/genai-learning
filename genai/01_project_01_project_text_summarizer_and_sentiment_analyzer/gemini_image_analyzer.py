@@ -54,7 +54,7 @@ if uploaded_file is not None:
     # --- 5. Text Prompt ---
     prompt_text = st.text_input(
         "Aap is image ke baare mein kya poochna chahte hain?", 
-        value="Is picture mein kya-kya dikh raha hai? Detail mein batao."
+        value="Is picture mein kya-kya dikh raha hai? Detail mein batao." + "Reply in the same language and tone I use.If I write in English → reply fully in English.If I write in Hinglish → reply naturally in Hinglish or mixed English (not Hindi translation).Never switch to pure Hindi unless I use it first"
     )
     
     # --- 6. Process Button ---
